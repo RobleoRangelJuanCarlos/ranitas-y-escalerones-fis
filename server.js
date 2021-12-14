@@ -6,13 +6,10 @@ const app = express();
 const PORT = 3000 || process.env.PORT;
 const server = http.createServer(app);
 
-// Set static folder
 app.use(express.static("public"));
 
-// Socket setup
 const io = socket(server);
 
-// Players array
 let users = [];
 
 io.on("connection", (socket) => {
